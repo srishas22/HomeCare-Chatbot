@@ -1,0 +1,74 @@
+hello
+Hello! Welcome to HomeCare. How can we assist you today?
+
+services
+We offer a wide range of services including deep cleaning, kitchen cleaning, bathroom sanitization, carpet and upholstery cleaning, and more.
+
+deep cleaning
+Our deep cleaning service ensures every corner of your home is spotless, removing dirt, dust, and allergens for a healthier living space.
+
+kitchen cleaning
+We provide thorough kitchen cleaning, including countertops, cabinets, appliances, and floors, to keep your cooking area hygienic.
+
+bathroom cleaning
+Our bathroom sanitization service eliminates germs, mold, and stains, ensuring a fresh and hygienic environment.
+
+carpet cleaning
+We use advanced techniques for carpet and upholstery cleaning, removing dirt, stains, and odors to restore freshness.
+
+regular cleaning
+Schedule regular cleaning with us to maintain a tidy, comfortable, and welcoming home at all times.
+
+appointment
+Would you like to schedule a cleaning appointment? Please share your preferred date and time, and we'll confirm it.
+
+pricing
+For pricing details on our cleaning services, please visit our website or contact us directly. We offer affordable and competitive rates.
+
+location
+We provide services across Kanpur and nearby areas. Contact us to confirm availability in your neighborhood.
+
+timings
+We operate from 8 am to 10 pm, Monday through Saturday. Book a slot at your convenience!
+
+feedback
+Your feedback helps us improve our services. Please share your experience or suggestions with us.
+
+thank you
+Thank you for choosing HomeCare. We look forward to making your home shine!
+
+dusting
+Our dusting service keeps your furniture and shelves spotless, helping you maintain a dust-free and fresh environment.
+
+sofa cleaning
+We specialize in sofa and upholstery cleaning, removing stains and allergens for a healthier and fresher living room.
+
+floor cleaning
+From mopping to polishing, our floor cleaning service leaves your floors sparkling and well-maintained.
+
+disinfection service
+Our disinfection service ensures your home is germ-free, providing a safe and hygienic environment for your family.
+
+move-in cleaning
+Moving into a new place? Let us handle the cleaning so you can settle into a fresh and spotless home.
+
+move-out cleaning
+Planning to move? We’ll ensure your home is cleaned thoroughly, making it ready for the next residents.
+
+warranty information
+We stand behind our cleaning quality. If you’re not satisfied, we offer a free follow-up service for your peace of mind.
+
+hi
+Hi, Welcome to HomeCare! How can we make your home cleaner and healthier today?
+
+good
+That’s wonderful to hear, thank you!
+
+your owner
+I’m a chatbot, developed by Srisha Singh for HomeCare. You can think of him as my creator.
+
+oh
+Yes! What else would you like to know?
+
+happy
+We’re glad that you’re happy. It makes us happy too! How else can we assist you today?
