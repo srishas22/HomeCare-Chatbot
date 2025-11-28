@@ -5,13 +5,13 @@
 #include <algorithm>
 #include <cctype>
 #include <sstream> 
-#include <limits> // Required for numeric_limits
+#include <limits> 
 
 using namespace std;
 
-// --- Utility Functions ---
+//Utility Function
 
-// Utility function to trim leading and trailing whitespace
+// trim leading and trailing whitespace
 string trim(const string& str) {
     size_t first = str.find_first_not_of(" \t\n\r");
     if (string::npos == first) {
@@ -21,8 +21,7 @@ string trim(const string& str) {
     return str.substr(first, (last - first + 1));
 }
 
-// --- Response Template Class ---
-
+//response template class
 template <typename T1, typename T2>
 class Response {
 private:
@@ -39,8 +38,7 @@ public:
     void setResponse(const T2& r) { reply = r; }
 };
 
-// --- Base Class: Chatbot ---
-
+//Base Class: Chatbot
 class Chatbot {
 protected:
     string name;
@@ -137,8 +135,7 @@ public:
     }
 };
 
-// --- Renamed Intermediate Class: HomeCareBaseChatbot ---
-
+// HomeCareBaseChatbot: Derived From Chatbot
 class HomeCareBaseChatbot : public Chatbot {
 public:
     HomeCareBaseChatbot(const string& botName, const string& file) 
@@ -150,8 +147,7 @@ public:
     }
 };
 
-// --- Emergency Service Class (Composition) ---
-
+//Emergency Service Class (Composition)
 class EmergencyService {
 public:
     void provideEmergencyInfo() const {
@@ -160,8 +156,7 @@ public:
     }
 };
 
-// --- Final Derived Class: HomeCareChatbot ---
-
+//Final Derived Class: HomeCareChatbot
 class HomeCareChatbot : public HomeCareBaseChatbot {
 private:
     EmergencyService emergencyService;
@@ -179,7 +174,7 @@ public:
 
     void displayMenu(bool isPrimary = true) const {
         const vector<string>& menu = isPrimary ? PRIMARY_MENU : SECONDARY_MENU;
-        const string title = isPrimary ? "🏡 Primary Options" : "🧹 Service Options";
+        const string title = isPrimary ? "Primary Options" : "Service Options";
 
         cout << "\n--- " << title << " ---" << endl;
         
@@ -192,7 +187,7 @@ public:
         }
 
         cout << "--------------------------" << endl;
-        cout << "Type the option number, or type your query directly (e.g., timings, hi, bye)." << endl;
+        cout << "Type the option number, or type your query directly." << endl;
     }
 
     const vector<string>& getPrimaryKeywords() const {
@@ -211,7 +206,7 @@ public:
         
         string keywordToSearch;
         
-        // --- 1. Check Primary Menu ---
+        //Check Primary Menu
         if (menuChoice > 0 && menuChoice <= (int)primary.size()) {
             keywordToSearch = primary[menuChoice - 1];
         } else if (menuChoice == (int)primary.size() + 1) {
@@ -219,9 +214,8 @@ public:
             provideEmergencyService();
             return true;
         } 
-        // --- 2. Check Secondary Menu ---
+        //Check Secondary Menu
         else if (menuChoice > 100 && menuChoice <= 100 + (int)secondary.size()) {
-            // Prefix 100 is applied in main(). Index is (choice - 101).
             keywordToSearch = secondary[menuChoice - 101]; 
         } 
         else {
@@ -229,21 +223,20 @@ public:
             return false;
         }
         
-        // --- 3. Process Keyword ---
-        
+        //Process Keyword
         if (keywordToSearch == "services") {
             cout << "Great! Which service are you interested in?" << endl;
             displayMenu(false); // Display secondary menu
             return true;
         } else {
-            // FIX: Use the base class's respond logic for all specific keywords
+            //Use the base class's respond logic for all specific keywords
             Chatbot::respond(keywordToSearch); 
             return true;
         }
     }
 };
 
-// Initialize the static constant members
+//static constant members
 const vector<string> HomeCareChatbot::PRIMARY_MENU = {
     "services",      
     "appointment",   
@@ -263,8 +256,7 @@ const vector<string> HomeCareChatbot::SECONDARY_MENU = {
 };
 
 
-// --- Main Program ---
-
+//Main Program
 int main() {
     HomeCareChatbot myBot("Service Bot", "details.txt");
 
@@ -278,8 +270,7 @@ int main() {
 
     while (true) {
         cout << "You: ";
-        
-        // --- Handle Numeric/Menu Input ---
+        //Numeric Input
         if (cin >> menuChoice) {
             
             // 1. Determine the number to pass to handleMenuSelection
@@ -293,8 +284,6 @@ int main() {
             bool success = myBot.handleMenuSelection(menuChoice);
             
             if (success) {
-                // If the successful action was to select 'services' (Primary Choice 1)
-                // This correctly handles the transition to the secondary menu
                 if (menuChoice == 1) {
                     inSecondaryMenu = true; 
                 } else {
@@ -307,13 +296,11 @@ int main() {
             }
 
         } 
-        // --- Handle Text Input ---
+        // Text Input
         else {
             cin.clear();
             getline(cin, userInput);
-            
             string lowerInput = Chatbot::toLowerCase(userInput);
-
             if (lowerInput == "bye" || lowerInput == "exit") {
                 myBot.farewell();
                 break;
@@ -322,11 +309,8 @@ int main() {
             } else {
                 myBot.respond(userInput);
             }
-            
-            inSecondaryMenu = false; // Reset state after any general text input
+            inSecondaryMenu = false; 
         }
-        
-        // Display the correct menu for the next turn
         myBot.displayMenu(!inSecondaryMenu);
     }
 
